@@ -12,6 +12,7 @@
     <link href="{{ asset('home/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom CSS-->
     <link href="{{ asset('home/css/main.css') }}" rel="stylesheet">
+    <title>@yield('title', 'Ömer Can | Kişisel Blog Sitesi')</title>
   </head>
   <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- Preloader-->
@@ -21,55 +22,12 @@
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand page-scroll" href="#page-top">
-            <!-- Text or Image logo--><img class="logo" src="{{ asset('home/img/logo.png') }}" alt="Logo"><img class="logodark" src="{{ asset('home/img/logodark.png') }}" alt="Logo"></a>
+            <!-- Text or Image logo--><img class="logo" src="@yield('logo')" alt="Logo"><img class="logodark" src="@yield('logo_dark')" alt="Logo"></a>
         </div>
         <div class="collapse navbar-collapse navbar-main-collapse">
           <ul class="nav navbar-nav navbar-left">
             <li class="hidden"><a href="#page-top"></a></li>
-            <li><a href="#">Home <span class="caret"></span></a>
-              <ul class="dropdown-menu columns-3">
-                <li><strong class="text-muted">demos</strong></li>
-                <li><a href="indexslider.html">main demo</a></li>
-                <li><a href="indexagency.html">agency</a></li>
-                <li><a href="indexcar.html">auto showroom</a></li>
-                <li><a href="indexapp.html">application</a></li>
-                <li><a href="indexpersonal.html">personal / freelancer</a></li>
-                <li><a href="indexpersonal2.html">personal / freelancer 2</a></li>
-                <li><a href="indexportfolio.html">agency portfolio <span class="label label-danger">new</span></a></li>
-                <li><a href="indexportfolio2.html">photographer portfolio</a></li>
-                <li><a href="indexconstruction.html">construction / renovation</a></li>
-                <li><a href="indexbarber.html">beauty salon <span class="label label-danger">new</span></a></li>
-                <li><a href="indexarchdesign.html">architecture & design</a></li>
-                <li><a href="landing.html">landing page</a></li>
-                <li><a href="landing2.html">landing page 2</a></li>
-                <li><a href="landingdark.html">landing page dark</a></li>
-                <li><strong class="text-muted">hero demos</strong></li>
-                <li><a href="indexparallax.html">image parallax</a></li>
-                <li><a href="indexkenburns.html">ken burns slider</a></li>
-                <li><a href="indexkenburns2.html">ken burns slider 2 <span class="label label-danger">new</span></a></li>
-                <li><a href="indexvideo.html">full screen video</a></li>
-                <li><a href="indexvideo2.html">full screen video 2</a></li>
-                <li><a href="indexdark.html">home dark</a></li>
-                <li><a href="indexparallaxhalf.html">half screen parallax</a></li>
-                <li><a href="indexsmallheader.html">small header</a></li>
-                <li><a href="indexsolidcolor.html">minimal solid color <span class="label label-danger">new</span></a></li>
-                <li><strong class="text-muted">one page demos</strong></li>
-                <li><a href="indexparallax-one.html">image parallax</a></li>
-                <li><a href="indexkenburns-one.html">ken burns slider</a></li>
-                <li><a href="indexkenburns2-one.html">ken burns slider 2</a></li>
-                <li><a href="indexvideo-one.html">full screen video</a></li>
-                <li><a href="indexvideo2-one.html">full screen video 2</a></li>
-                <li><a href="indexdark-one.html">home dark</a></li>
-                <li><a href="indexparallaxhalf-one.html">half screen parallax</a></li>
-                <li><a href="indexsmallheader-one.html">small header</a></li>
-                <li><a href="indexsolidcolor-one.html">minimal solid color</a></li>
-                <li><strong class="text-muted">coming soon & countdown</strong></li>
-                <li><a href="comingsoon.html">landing coming soon</a></li>
-                <li><a href="comingsoon2.html">coming soon canvas</a></li>
-                <li><a href="comingsoon3.html">coming soon canvas 2</a></li>
-                <li><a class="btn-nav" href="index.html"><span class="btn btn-dark-border btn-sm">More Demos</span></a></li>
-              </ul>
-            </li>
+            <li><a href="#">Anasayfa <span class="caret"></span></a></li>
             <li><a href="#">Pages <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="about.html">about us 1</a></li>

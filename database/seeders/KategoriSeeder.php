@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class SliderSeed extends Seeder
+class KategoriSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class SliderSeed extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Kategori::factory(6)->create();
     }
 }

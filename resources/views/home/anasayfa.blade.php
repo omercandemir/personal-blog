@@ -1,11 +1,24 @@
 @extends('home.layouts.master')
+@section('title')
+   Ömer Can | Anasayfa    
+@endsection
 @section('content')
     <!-- Page Content Buraya Gelecek -->
 
+    @section('logo')
+         {{ $ayar[0]->logo }}
+    @endsection
+    @section('logo_dark')
+         {{$ayar[0]->logo_dark}}
+    @endsection
+    @section('siteadi')
+        {{$ayar[0]->site_adi}}
+    @endsection
+
     <header class="intro" data-background="{{asset ('home/img/main/29.jpg')}}">
         <div class="intro-body">
-           <h4>Art Director & Entrepreneur</h4>
-           <h1>Paul Unibody</h1>
+           <h4> Jr. Web Developer</h4>
+           <h1>{{ $ayar[0]->site_adi }}</h1>
            <a class="page-scroll" href="#about"><span class="mouse"><span><i class="icon ion-ios-arrow-down"></i></span></span></a>
         </div>
      </header>
@@ -14,23 +27,23 @@
         <div class="container">
            <div class="row">
               <div class="col-lg-6">
-                 <h3>About Me</h3>
-                 <p class="no-pad">Hi there. I'm P. Unibody. Art Director & Entrepreneur. My interests include cognitive psychology, web coding, and graphic design. I am a qualified multimedia designer, specializing in interface and information design, concept development and brand identity.</p>
-                 <h2 class="classic">- P. Unibody</h2>
+                 <h3>Hakkımda</h3>
+                 <p class="no-pad">{{ $ayar[0]->hakkimizda }}</p>
+                 <h2 class="classic">- {{ $ayar[0]->site_adi }} </h2>
               </div>
               <div class="col-lg-5 col-lg-offset-1">
                  <h3>&nbsp;</h3>
-                 <div class="circle" data-thickness="4" data-value="0.93">
+                 <div class="circle" data-thickness="8" data-value="0.85">
                     <span></span>
-                    <div class="agenda">Design</div>
+                    <div class="agenda">PHP</div>
                  </div>
-                 <div class="circle" data-thickness="10" data-value="0.82">
+                 <div class="circle" data-thickness="8" data-value="0.75">
                     <span></span>
-                    <div class="agenda">Programming</div>
+                    <div class="agenda">CodeIgniter</div>
                  </div>
-                 <div class="circle" data-thickness="18" data-value="0.68">
+                 <div class="circle" data-thickness="8" data-value="0.85">
                     <span></span>
-                    <div class="agenda">Photography</div>
+                    <div class="agenda">Laravel</div>
                  </div>
               </div>
            </div>
@@ -41,20 +54,20 @@
         <div class="container text-center">
            <div class="row">
               <div class="col-lg-3 col-sm-6 wow fadeIn" data-wow-delay=".2s">
-                 <h4><i class="icon-big icon ion-ios-game-controller-b-outline"></i> i'm creative</h4>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum</p>
+                 <h4><i class="icon-big icon ion-ios-person-outline"></i> Kişisel Web Sitesi</h4>
+                 <p>Artık hayalinizdeki kişisel web sitesi sadece 1 adım uzağınızda, size özel blog / portofolio web sitesine kısa sürede sahip olabilirsiniz!</p>
               </div>
               <div class="col-lg-3 col-sm-6 wow fadeIn" data-wow-delay=".4s">
-                 <h4><i class="icon-big ion-ios-nutrition-outline"></i> i'm experienced</h4>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum</p>
+                 <h4><i class="icon-big icon ion-ios-briefcase-outline"></i> Kurumsal Web Sitesi</h4>
+                 <p>Firmanızı tüm dünyaya tanıtma zamanı geldi! Firmanızı, ürünlerinizi tanıtabileceğiniz ve müşterilerinize bilgi verebileceğiniz web sitesi artık sadece bir adım uzağınızda</p>
               </div>
               <div class="col-lg-3 col-sm-6 wow fadeIn" data-wow-delay=".6s">
-                 <h4><i class="icon-big ion-ios-lightbulb-outline"></i> i have a dream</h4>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum</p>
+                 <h4><i class="icon-big icon ion-ios-color-wand-outline"></i> Proje Düzenleme / Ekleme</h4>
+                 <p>Mevcut Laravel projeleriniz üzerinde hata düzeltme, ekleme, düzenleme gibi işlemler ve daha fazlası için iletişim butonunu kullanabilirsiniz.</p>
               </div>
               <div class="col-lg-3 col-sm-6 wow fadeIn" data-wow-delay=".8s">
-                 <h4><i class="icon-big ion-ios-people-outline"></i> I'm communicative</h4>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum</p>
+                 <h4><i class="icon-big icon ion-ios-chatboxes-outline"></i> Ücretsiz Proje Danışmanlığı</h4>
+                 <p>Aklınızdaki web projesini canlandırmanın vakti geldi! Hemen iletişime geçin ve proje çizelgesini / fiyatını oluşturalım ve hızlıca hayata geçirelim!</p>
               </div>
            </div>
         </div>
@@ -66,8 +79,8 @@
            <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
                  <p><i class="icon fa fa-quote-left fa-lg"></i></p>
-                 <p>The collaborative process of web development requires close integration of technology and design - two disciplines that inform one another.</p>
-                 <h2 class="no-pad classic">Jeny Elkind</h2>
+                 <p> {{ $ayar[0]->ozel_soz }} </p>
+                 <h2 class="no-pad classic">M.Kemal Atatürk</h2>
               </div>
            </div>
         </div>
@@ -77,133 +90,47 @@
         <div class="container text-center">
            <div class="row">
               <div class="col-sm-10 col-sm-offset-1">
-                 <h3>My Works</h3>
-                 <ul class="portfolio-sorting list-inline text-center">
-                    <li><a class="active" href="portfolio-single.html" data-group="all">All</a></li>
-                    <li><a href="portfolio-single.html" data-group="design">Design</a></li>
-                    <li><a href="portfolio-single.html" data-group="photo">Photo</a></li>
-                    <li><a href="portfolio-single.html" data-group="branding">Branding</a></li>
-                 </ul>
+                 <h3>Projeler</h3>
               </div>
            </div>
         </div>
         <div class="container-fluid">
            <div class="row portfolio-items" id="grid">
-              <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;branding&quot;, &quot;design&quot;]">
-                 <div class="portfolio-item">
-                    <a href="portfolio-single.html">
-                       <img src="{{asset('home/img/main/41.jpg')}}" alt="">
-                       <div class="portfolio-overlay">
-                          <div class="caption">
-                             <h5>Form Image Creative</h5>
-                             <span>Lorem ipsum dolor sit amet</span>
-                          </div>
-                       </div>
-                    </a>
-                 </div>
-              </div>
+            @foreach ($projeler as $proje)
               <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;photo&quot;, &quot;branding&quot;]">
                  <div class="portfolio-item">
                     <a href="portfolio-single.html">
-                       <img src="{{asset('home/img/main/42.jpg')}}" alt="">
+                       <img src="{{ $proje->proje_resim }}" alt="">
                        <div class="portfolio-overlay">
                           <div class="caption">
-                             <h5>Form Image Creative</h5>
-                             <span>Lorem ipsum dolor sit amet</span>
+                             <h5>{{ $proje->proje_adi }}</h5>
+                             <span>{{ $proje->proje_aciklama }}</span>
                           </div>
                        </div>
                     </a>
                  </div>
               </div>
-              <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;&quot;]">
-                 <div class="portfolio-item">
-                    <a href="portfolio-single.html">
-                       <img src="{{asset('home/img/main/34.jpg')}}" alt="">
-                       <div class="portfolio-overlay">
-                          <div class="caption">
-                             <h5>Form Image Creative</h5>
-                             <span>Lorem ipsum dolor sit amet</span>
-                          </div>
-                       </div>
-                    </a>
-                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;design&quot;, &quot;photo&quot;]">
-                 <div class="portfolio-item">
-                    <a href="portfolio-single.html">
-                       <img src="{{asset('home/img/main/38.jpg')}}" alt="">
-                       <div class="portfolio-overlay">
-                          <div class="caption">
-                             <h5>Form Image Creative</h5>
-                             <span>Lorem ipsum dolor sit amet</span>
-                          </div>
-                       </div>
-                    </a>
-                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;branding&quot;, &quot;design&quot;]">
-                 <div class="portfolio-item">
-                    <a href="portfolio-single.html">
-                       <img src="{{asset('home/img/main/21.jpg')}}" alt="">
-                       <div class="portfolio-overlay">
-                          <div class="caption">
-                             <h5>Form Image Creative</h5>
-                             <span>Lorem ipsum dolor sit amet</span>
-                          </div>
-                       </div>
-                    </a>
-                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;photo&quot;, &quot;design&quot;, &quot;branding&quot;]">
-                 <div class="portfolio-item">
-                    <a href="portfolio-single.html">
-                       <img src="{{asset('home/img/main/40.jpg')}}" alt="">
-                       <div class="portfolio-overlay">
-                          <div class="caption">
-                             <h5>Form Image Creative</h5>
-                             <span>Lorem ipsum dolor sit amet</span>
-                          </div>
-                       </div>
-                    </a>
-                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;photo&quot;]">
-                 <div class="portfolio-item">
-                    <a href="portfolio-single.html">
-                       <img src="{{asset('home/img/main/43.jpg')}}" alt="">
-                       <div class="portfolio-overlay">
-                          <div class="caption">
-                             <h5>Form Image Creative</h5>
-                             <span>Lorem ipsum dolor sit amet</span>
-                          </div>
-                       </div>
-                    </a>
-                 </div>
-              </div>
+            @endforeach
            </div>
         </div>
      </section>
-     <div class="section-small action bg-gray text-center"><a class="btn btn-dark-border" href="portfolio-masonry-4.html">View All Portfolio</a></div>
+     <div class="section-small action bg-gray text-center"><a class="btn btn-dark-border" href="#">Tüm Projelere Göz At</a></div>
      <!-- Facts section-->
      <section class="facts section-small bg-img">
         <div class="overlay"></div>
         <div class="container text-center">
            <div class="row">
-              <div class="col-sm-3">
-                 <span class="numscroller" data-min="0" data-max="29" data-delay="5" data-increment="1">0</span>
-                 <h5 class="no-pad">Themes released</h5>
+              <div class="col-sm-4">
+                 <span class="numscroller" data-min="0" data-max="18" data-delay="4" data-increment="1">0</span>
+                 <h5 class="no-pad">Tamamlanan Proje</h5>
               </div>
-              <div class="col-sm-3">
-                 <span class="numscroller" data-min="0" data-max="2785" data-delay="5" data-increment="3">0</span>
-                 <h5 class="no-pad">Happy Customers</h5>
+              <div class="col-sm-4">
+                 <span class="numscroller" data-min="0" data-max="50" data-delay="5" data-increment="2">0</span>
+                 <h5 class="no-pad">'den fazla müşteri</h5>
               </div>
-              <div class="col-sm-3">
-                 <span class="numscroller" data-min="0" data-max="12" data-delay="5" data-increment="1">0</span>
-                 <h5 class="no-pad">Winning awards</h5>
-              </div>
-              <div class="col-sm-3">
-                 <span class="numscroller" data-min="0" data-max="78" data-delay="5" data-increment="1">0</span>
-                 <h5 class="no-pad">Completed project</h5>
+              <div class="col-sm-4">
+                 <span class="numscroller" data-min="0" data-max="2" data-delay="3" data-increment="1">0</span>
+                 <h5 class="no-pad">+ yıllık deneyim</h5>
               </div>
            </div>
         </div>
@@ -211,36 +138,22 @@
      <!-- Blog-->
      <section class="bg-gray">
         <div class="container">
-           <h3 class="pull-left">MY BLOG</h3>
+           <h3 class="pull-left">BLOG</h3>
            <div class="pull-right">
-              <h5><a href="news3.html">SEE ALL</a></h5>
+              <h5><a href="news3.html">Tümüne Göz At</a></h5>
            </div>
            <div class="clearfix"></div>
            <div class="row grid-pad">
+              @foreach ($bloglar as $blog)
               <div class="col-sm-4">
                  <a href="news-single-sidebar.html">
-                    <img class="img-responsive center-block" src="{{asset('home/img/main/5.jpg')}}" alt="">
-                    <h5>sem sed dictum mattis, turpis purus</h5>
+                    <img class="img-responsive center-block" src="{{ $blog->resim }}" alt="">
+                    <h5>{{ $blog->baslik }}</h5>
                  </a>
                  <p>Lorem ipsum dolor sit amet, consectetur elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum mattis, turpis purus.</p>
-                 <a class="btn btn-dark-border btn-xs" href="news-single.html">Read more</a>
+                 <a class="btn btn-dark-border btn-xs" href="{{ url('blog/'.$blog->id.'') }}">Devamını Oku</a>
               </div>
-              <div class="col-sm-4">
-                 <a href="news-single-sidebar.html">
-                    <img class="img-responsive center-block" src="{{asset('home/img/main/6.jpg')}}" alt="">
-                    <h5>Nulla convallis pulvinar vestibulum</h5>
-                 </a>
-                 <p>Lorem ipsum dolor sit amet, consectetur elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum mattis, turpis purus.</p>
-                 <a class="btn btn-dark-border btn-xs" href="news-single.html">Read more</a>
-              </div>
-              <div class="col-sm-4">
-                 <a href="news-single-sidebar.html">
-                    <img class="img-responsive center-block" src="{{asset('home/img/main/21.jpg')}}" alt="">
-                    <h5>o tempora, o mores. sem sed dictum</h5>
-                 </a>
-                 <p>Lorem ipsum dolor sit amet, consectetur elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum mattis, turpis purus.</p>
-                 <a class="btn btn-dark-border btn-xs" href="news-single.html">Read more</a>
-              </div>
+              @endforeach
            </div>
         </div>
      </section>
@@ -252,7 +165,7 @@
                  <h3>Say hello</h3>
                  <p>Feel free to contact me to provide some feedback on my templates, give me suggestions for new templates and themes, or to just say hello!</p>
                  <!-- Contact Form - Enter your email address on line 17 of the mail/contact_me.php file to make this form work. For more information on how to do this please visit the Docs!-->
-                 <form id="contactForm" name="sentMessage" novalidate="">
+                 <form action="#" method="post">
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label" for="name">You Name</label>

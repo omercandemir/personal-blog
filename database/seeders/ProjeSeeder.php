@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class ayarSeed extends Seeder
+class ProjeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class ayarSeed extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Proje::factory(12)->create(); // random user oluşturma UserFactory'e gider.
     }
 }
