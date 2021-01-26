@@ -19,10 +19,10 @@ class Blog extends Migration
             $table->longText('yazi');
             $table->string('yazar');
             $table->string('resim');
-            $table->unsignedBigInteger('kategori_id'); // ilişkisel bir stün 
             $table->string('slug');
+            $table->integer('kategori_id'); // ilişkisel bir stün 
             $table->timestamps();
-            $table->foreign('kategori_id')->references('id')->on('kategoriler'); // kategori_id kesinlikle kategoriler tablosundaki id'de mevcut olmalı
+           // $table->foreign('kategori_id')->references('id')->on('kategoriler'); // kategori_id kesinlikle kategoriler tablosundaki id'de mevcut olmalı
         });
     }
 

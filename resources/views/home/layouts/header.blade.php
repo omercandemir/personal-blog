@@ -27,24 +27,8 @@
         <div class="collapse navbar-collapse navbar-main-collapse">
           <ul class="nav navbar-nav navbar-left">
             <li class="hidden"><a href="#page-top"></a></li>
-            <li><a href="#">Anasayfa <span class="caret"></span></a></li>
-            <li><a href="#">Pages <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="about.html">about us 1</a></li>
-                <li><a href="about2.html">about us 2</a></li>
-                <li><a href="contact.html">contact us 1</a></li>
-                <li><a href="contact2.html">contact us 2 <span class="label label-danger">new</span></a></li>
-                <li><a href="clients.html">clients</a></li>
-                <li><a href="team.html">team</a></li>
-                <li><a href="services.html">services</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register-login.html">Register/Login</a></li>
-                <li><a href="faq.html">faq</a></li>
-                <li><a href="404.html">error 404</a></li>
-                <li><a href="blank.html">blank page</a></li>
-              </ul>
-            </li>
+            <li><a href="{{ url('/') }}">Anasayfa <span class="caret"></span></a></li>
+            <li><a href="{{ url('/blog') }}">Blog <span class="caret"></span></a></li>
             <li><a href="#">Portfolio <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Masonry <span class="angle-right"></span><span class="caret"></span></a>

@@ -6,19 +6,19 @@
     <!-- Page Content Buraya Gelecek -->
 
     @section('logo')
-         {{ $ayar[0]->logo }}
+         {{ $ayar->logo }}
     @endsection
     @section('logo_dark')
-         {{$ayar[0]->logo_dark}}
+         {{$ayar->logo_dark}}
     @endsection
     @section('siteadi')
-        {{$ayar[0]->site_adi}}
+        {{$ayar->site_adi}}
     @endsection
 
     <header class="intro" data-background="{{asset ('home/img/main/29.jpg')}}">
         <div class="intro-body">
            <h4> Jr. Web Developer</h4>
-           <h1>{{ $ayar[0]->site_adi }}</h1>
+           <h1>{{ $ayar->site_adi }}</h1>
            <a class="page-scroll" href="#about"><span class="mouse"><span><i class="icon ion-ios-arrow-down"></i></span></span></a>
         </div>
      </header>
@@ -28,8 +28,8 @@
            <div class="row">
               <div class="col-lg-6">
                  <h3>Hakkımda</h3>
-                 <p class="no-pad">{{ $ayar[0]->hakkimizda }}</p>
-                 <h2 class="classic">- {{ $ayar[0]->site_adi }} </h2>
+                 <p class="no-pad">{{ $ayar->hakkimizda }}</p>
+                 <h2 class="classic">- {{ $ayar->site_adi }} </h2>
               </div>
               <div class="col-lg-5 col-lg-offset-1">
                  <h3>&nbsp;</h3>
@@ -79,7 +79,7 @@
            <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
                  <p><i class="icon fa fa-quote-left fa-lg"></i></p>
-                 <p> {{ $ayar[0]->ozel_soz }} </p>
+                 <p> {{ $ayar->ozel_soz }} </p>
                  <h2 class="no-pad classic">M.Kemal Atatürk</h2>
               </div>
            </div>
@@ -140,18 +140,18 @@
         <div class="container">
            <h3 class="pull-left">BLOG</h3>
            <div class="pull-right">
-              <h5><a href="news3.html">Tümüne Göz At</a></h5>
+              <h5><a href="{{ url('/bloglar') }}">Tümüne Göz At</a></h5>
            </div>
            <div class="clearfix"></div>
            <div class="row grid-pad">
               @foreach ($bloglar as $blog)
               <div class="col-sm-4">
-                 <a href="news-single-sidebar.html">
+                 <a href="{{ url('/yazi/'.$blog->slug.'') }}">
                     <img class="img-responsive center-block" src="{{ $blog->resim }}" alt="">
                     <h5>{{ $blog->baslik }}</h5>
                  </a>
-                 <p>Lorem ipsum dolor sit amet, consectetur elit. Nulla convallis pulvinar vestibulum. Donec eleifend, sem sed dictum mattis, turpis purus.</p>
-                 <a class="btn btn-dark-border btn-xs" href="{{ url('blog/'.$blog->id.'') }}">Devamını Oku</a>
+                 <p>{{ Str::substr($blog->yazi, 0,150) }}</p>
+                 <a class="btn btn-dark-border btn-xs" href="{{ url('/yazi/'.$blog->slug.'') }}">Devamını Oku</a>
               </div>
               @endforeach
            </div>
@@ -162,36 +162,34 @@
         <div class="container text-center">
            <div class="row">
               <div class="col-md-6 col-md-offset-3">
-                 <h3>Say hello</h3>
-                 <p>Feel free to contact me to provide some feedback on my templates, give me suggestions for new templates and themes, or to just say hello!</p>
-                 <!-- Contact Form - Enter your email address on line 17 of the mail/contact_me.php file to make this form work. For more information on how to do this please visit the Docs!-->
+                 <h3>İletişime Geç</h3>
+                 <p>Benimle hızlı bir şekilde iletişime geçmek için ağağıdaki formu eksiksiz doldurman yeterli!</p>
                  <form action="#" method="post">
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
-                          <label class="sr-only control-label" for="name">You Name</label>
-                          <input class="form-control input-lg" id="name" type="text" placeholder="You Name" required="" data-validation-required-message="Please enter name"><span class="help-block text-danger"></span>
+                          <label class="sr-only control-label">İsminiz</label>
+                          <input class="form-control input-lg" type="text" placeholder="İsminiz">
                        </div>
                     </div>
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
-                          <label class="sr-only control-label" for="email">You Email</label>
-                          <input class="form-control input-lg" id="email" type="email" placeholder="You Email" required="" data-validation-required-message="Please enter email"><span class="help-block text-danger"></span>
+                          <label class="sr-only control-label">E-Posta Adresiniz</label>
+                          <input class="form-control input-lg" type="email" placeholder="E-posta Adresiniz">
                        </div>
                     </div>
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
-                          <label class="sr-only control-label" for="phone">You Phone</label>
-                          <input class="form-control input-lg" id="phone" type="tel" placeholder="You Phone" required="" data-validation-required-message="Please enter phone number"><span class="help-block text-danger"></span>
+                          <label class="sr-only control-label">Telefon Numaranız (isteğe bağlı)</label>
+                          <input class="form-control input-lg" type="tel" placeholder="Telefon Numaranız">
                        </div>
                     </div>
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
-                          <label class="sr-only control-label" for="message">Message</label>
-                          <textarea class="form-control input-lg" id="message" rows="2" placeholder="Message" required="" data-validation-required-message="Please enter a message." aria-invalid="false"></textarea><span class="help-block text-danger"></span>
+                          <label class="sr-only control-label">Mesajınız</label>
+                          <textarea class="form-control input-lg" rows="2" placeholder="Mesajınız"></textarea>
                        </div>
                     </div>
-                    <div id="success"></div>
-                    <button class="btn btn-dark" type="submit">Send</button>
+                    <button class="btn btn-dark" type="submit">Gönder</button>
                  </form>
               </div>
            </div>

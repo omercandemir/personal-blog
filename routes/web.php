@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\home\HomepageController; // controller çağırma
+use App\Http\Controllers\BlogController; // controller çağırma
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,9 @@ use App\Http\Controllers\home\HomepageController; // controller çağırma
 */
 
 Route::get('/', HomepageController::class)->name('anasayfa');
+Route::resource('blog', BlogController::class)->only([
+    'index', 'show'
+]);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

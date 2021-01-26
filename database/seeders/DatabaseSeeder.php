@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AyarSeeder::class,
             ProjeSeeder::class,
-            BlogSeeder::class,
             KategoriSeeder::class,
+            BlogSeeder::class,
         ]);
     }
 }
