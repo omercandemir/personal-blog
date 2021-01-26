@@ -2,7 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\home\HomepageController; // controller çağırma
-use App\Http\Controllers\BlogController; // controller çağırma
+use App\Http\Controllers\home\BlogController; // controller çağırma
+use App\Http\Controllers\home\ProjeController; // controller çağırma
+use App\Http\Controllers\ContactController; // controller çağırma
+use App\Http\Controllers\home\KategoriController; // controller çağırma
+
+
+
 
 
 /*
@@ -21,6 +27,18 @@ Route::resource('blog', BlogController::class)->only([
     'index', 'show'
 ]);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::resource('contact', ContactController::class)->only([
+    'index', 'store'
+]);
+
+Route::resource('projeler', ProjeController::class)->only([
+    'index', 'show'
+]);
+
+Route::resource('kategori', KategoriController::class)->only([
+    'index', 'show'
+]);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/panel', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('panel');

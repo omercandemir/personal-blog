@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Proje;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class ProjeFactory extends Factory
 {
@@ -25,7 +26,8 @@ class ProjeFactory extends Factory
             'proje_adi'         => $this->faker->company,
             'proje_aciklama'    => $this->faker->address,
             'proje_resim'       => 'home/img/main/42.jpg',
-            'proje_yazi'        => 'proje örnek yazısıdır.'
+            'proje_yazi'        => 'proje örnek yazısıdır.',
+            'slug'              => Str::slug($this->faker->name)
 
         ];
     }

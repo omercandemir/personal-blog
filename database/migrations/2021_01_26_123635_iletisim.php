@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Projeler extends Migration
+class Iletisim extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class Projeler extends Migration
      */
     public function up()
     {
-        Schema::create('projeler', function (Blueprint $table) {
+        Schema::create('iletisim', function (Blueprint $table) {
             $table->id();
-            $table->string('proje_adi');
-            $table->string('proje_aciklama');
-            $table->longText('proje_yazi')->nullable();
-            $table->longText('proje_resim');
-            $table->string('slug');
+            $table->string('isim');
+            $table->string('email');
+            $table->string('telefon');
+            $table->longText('mesaj');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class Projeler extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projeler');
+        Schema::dropIfExists('iletisim');
     }
 }

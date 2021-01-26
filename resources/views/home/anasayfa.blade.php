@@ -14,7 +14,9 @@
     @section('siteadi')
         {{$ayar->site_adi}}
     @endsection
-
+   @if (session('basarili'))
+      <script>alert("İletişim formu başarılı bir şekilde gönderildi!");</script>
+   @endif
     <header class="intro" data-background="{{asset ('home/img/main/29.jpg')}}">
         <div class="intro-body">
            <h4> Jr. Web Developer</h4>
@@ -99,7 +101,7 @@
             @foreach ($projeler as $proje)
               <div class="col-md-3 col-sm-6 no-pad" data-groups="[&quot;photo&quot;, &quot;branding&quot;]">
                  <div class="portfolio-item">
-                    <a href="portfolio-single.html">
+                    <a href="{{ url('projeler/'.$proje->slug.'') }}">
                        <img src="{{ $proje->proje_resim }}" alt="">
                        <div class="portfolio-overlay">
                           <div class="caption">
@@ -114,7 +116,7 @@
            </div>
         </div>
      </section>
-     <div class="section-small action bg-gray text-center"><a class="btn btn-dark-border" href="#">Tüm Projelere Göz At</a></div>
+     <div class="section-small action bg-gray text-center"><a class="btn btn-dark-border" href="{{ url('/projeler') }}">Tüm Projelere Göz At</a></div>
      <!-- Facts section-->
      <section class="facts section-small bg-img">
         <div class="overlay"></div>
@@ -164,29 +166,30 @@
               <div class="col-md-6 col-md-offset-3">
                  <h3>İletişime Geç</h3>
                  <p>Benimle hızlı bir şekilde iletişime geçmek için ağağıdaki formu eksiksiz doldurman yeterli!</p>
-                 <form action="#" method="post">
+                 <form action="{{route('contact.store')}}" method="post">
+                    @csrf
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label">İsminiz</label>
-                          <input class="form-control input-lg" type="text" placeholder="İsminiz">
+                          <input name="isim" class="form-control input-lg" type="text" placeholder="İsminiz">
                        </div>
                     </div>
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label">E-Posta Adresiniz</label>
-                          <input class="form-control input-lg" type="email" placeholder="E-posta Adresiniz">
+                          <input name="email" class="form-control input-lg" type="email" placeholder="E-posta Adresiniz">
                        </div>
                     </div>
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label">Telefon Numaranız (isteğe bağlı)</label>
-                          <input class="form-control input-lg" type="tel" placeholder="Telefon Numaranız">
+                          <input name="telefon" class="form-control input-lg" type="tel" placeholder="Telefon Numaranız (isteğe bağlı)">
                        </div>
                     </div>
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label">Mesajınız</label>
-                          <textarea class="form-control input-lg" rows="2" placeholder="Mesajınız"></textarea>
+                          <textarea name="mesaj" class="form-control input-lg" rows="2" placeholder="Mesajınız"></textarea>
                        </div>
                     </div>
                     <button class="btn btn-dark" type="submit">Gönder</button>

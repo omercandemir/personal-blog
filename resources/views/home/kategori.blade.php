@@ -45,7 +45,7 @@
           <h4>Kategoriler</h4>
           <ul class="list-unstyled">
             @foreach ($kategoriler as $kategori)
-                <li><a href="{{ url('kategori/'.$kategori->slug.'') }}">{{ $kategori->adi }}</a></li>
+                <li><a href="{{ url('/kategori/'.$kategori->slug.'') }}">{{ $kategori->adi }}</a></li>
             @endforeach
           </ul>
           <hr>
