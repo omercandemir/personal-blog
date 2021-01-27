@@ -36,7 +36,7 @@
             @foreach ($bloglar as $blog)
               <div class="col-sm-6"><a href="{{url('blog/'.$blog->slug.'')}}"><img class="img-responsive center-block" src="{{asset($blog->resim)}}" alt="">
                   <h5>{{Str::substr($blog->baslik, 0, 35)}}</h5></a>
-                <p>{{Str::substr($blog->yazi, 0,100)}}</p><a class="btn btn-gray btn-xs" href="{{ url('blog/'.$blog->slug.'') }}">Devamını Oku</a>
+                <p>{{Str::substr($blog->yazi, 0,100)}}...</p><a class="btn btn-gray btn-xs" href="{{ url('blog/'.$blog->slug.'') }}">Devamını Oku</a>
               </div>
             @endforeach
           </div>
@@ -53,7 +53,7 @@
           <div class="row no-pad">
             @foreach ($icekebilir as $cek)
                 <div class="col-md-6 col-sm-3">
-                <p><a href="{{ url('yazi/'.$cek->slug.'') }}"><img class="img-responsive" src="{{ asset($cek->resim) }}" alt=""></a></p>
+                <p><a href="{{ url('blog/'.$cek->slug.'') }}"><img class="img-responsive" src="{{ asset($cek->resim) }}" alt=""></a></p>
                 </div>
             @endforeach
           </div>

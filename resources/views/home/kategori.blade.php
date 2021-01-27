@@ -36,7 +36,7 @@
             @foreach ($bloglar as $blog)
               <div class="col-sm-6"><a href="{{url('blog/'.$blog->slug.'')}}"><img class="img-responsive center-block" src="{{asset($blog->resim)}}" alt="">
                   <h5>{{Str::substr($blog->baslik, 0, 35)}}</h5></a>
-                <p>{{Str::substr($blog->yazi, 0,100)}}</p><a class="btn btn-gray btn-xs" href="{{ url('blog/'.$blog->slug.'') }}">Devamını Oku</a>
+                <p>{{Str::substr($blog->yazi, 0,100)}}...</p><a class="btn btn-gray btn-xs" href="{{ url('blog/'.$blog->slug.'') }}">Devamını Oku</a>
               </div>
             @endforeach
           </div>
@@ -45,7 +45,7 @@
           <h4>Kategoriler</h4>
           <ul class="list-unstyled">
             @foreach ($kategoriler as $kategori)
-                <li><a href="{{ url('/kategori/'.$kategori->slug.'') }}">{{ $kategori->adi }}</a></li>
+                <li><a href="{{ url('kategori/'.$kategori->slug.'') }}">{{ $kategori->adi }}</a></li>
             @endforeach
           </ul>
           <hr>

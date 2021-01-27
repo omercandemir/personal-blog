@@ -6,6 +6,8 @@ use App\Http\Controllers\home\BlogController; // controller çağırma
 use App\Http\Controllers\home\ProjeController; // controller çağırma
 use App\Http\Controllers\ContactController; // controller çağırma
 use App\Http\Controllers\home\KategoriController; // controller çağırma
+use App\Http\Controllers\admin\AdminController; // controller çağırma
+
 
 
 
@@ -38,7 +40,9 @@ Route::resource('projeler', ProjeController::class)->only([
 Route::resource('kategori', KategoriController::class)->only([
     'index', 'show'
 ]);
-
+/*
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
-    return view('dashboard');
+    return view('panel.anasayfa');
 })->name('dashboard');
+*/
+Route::get('/admin', AdminController::class)->middleware('auth:sanctum', 'verified');

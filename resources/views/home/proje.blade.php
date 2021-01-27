@@ -37,7 +37,7 @@
                 <div class="portfolio-item"><a href="{{ url('projeler/'.$proje->slug.'') }}"><img src="{{asset($proje->proje_resim)}}" alt="">
                     <div class="portfolio-overlay">
                         <div class="caption">
-                        <h5>{{$proje->proje_adi}}</h5><span>{{$proje->proje_aciklama}}</span>
+                        <h5>{{$proje->proje_adi}}</h5><span>{{$proje->proje_aciklama}}...</span>
                         </div>
                     </div></a>
                 </div>
