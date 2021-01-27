@@ -9,4 +9,5 @@ class Ayar extends Model
 {
     use HasFactory;
     protected $table = 'ayar';
+    public $timestamps = false;
 }

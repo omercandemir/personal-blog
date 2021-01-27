@@ -1,28 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+// anasayfa kısmı
 use App\Http\Controllers\home\HomepageController; // controller çağırma
 use App\Http\Controllers\home\BlogController; // controller çağırma
 use App\Http\Controllers\home\ProjeController; // controller çağırma
 use App\Http\Controllers\ContactController; // controller çağırma
 use App\Http\Controllers\home\KategoriController; // controller çağırma
+
+// admin paneli kısmı
 use App\Http\Controllers\admin\AdminController; // controller çağırma
+use App\Http\Controllers\admin\AyarController; // controller çağırma
+use App\Http\Controllers\admin\LogoController; // controller çağırma
 
 
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', HomepageController::class)->name('anasayfa');
 Route::resource('blog', BlogController::class)->only([
@@ -46,3 +38,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
 })->name('dashboard');
 */
 Route::get('/admin', AdminController::class)->middleware('auth:sanctum', 'verified');
+
+Route::resource('admin/ayar', AyarController::class)->middleware('auth:sanctum', 'verified')->only([
+    'index', 'update'
+]);
+Route::resource('admin/logo', LogoController::class)->middleware('auth:sanctum', 'verified')->only([
+    'index', 'update'
+]);

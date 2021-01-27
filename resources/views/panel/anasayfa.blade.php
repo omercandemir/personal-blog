@@ -10,21 +10,18 @@
     Yönetici Kontrol Paneli | Anasayfa
 @endsection
 
-@section('isim')
- {{Auth::user()->name}} 
-@endsection
-
-@section('mail')
-    {{Auth::user()->email}}
-@endsection
 <div class="page-content">
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <h2 class="page-title">Yönetici Kontrol Paneli</h2>
-                <a href="#" class="btn btn-text-secondary float-right">Get Info</a>
-                <a href="#" class="btn btn-text-danger float-right m-r-sm">Print</a>
+                <div class="text-center">
+                    @if (session('basarili'))
+                        <div class="alert alert-success" role="alert">
+                            <b>{{session('basarili')}}</b>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
         <div class="row">

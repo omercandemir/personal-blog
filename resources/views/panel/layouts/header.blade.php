@@ -60,8 +60,8 @@
                             <img src="{{asset('panel/images/avatars/avatar1.png')}}">
                         </div>
                         <div class="sidebar-profile-info">
-                            <p>@yield('isim')</p>
-                            <span>@yield('mail')</span>
+                            <p>{{Auth::user()->name}} </p>
+                            <span>{{Auth::user()->email}} </span>
                         </div>
                     </div>
                     <div class="page-sidebar-menu">
@@ -78,18 +78,18 @@
                         <div class="sidebar-accordion-menu">
                             <ul class="sidebar-menu list-unstyled">
                                 <li>
-                                    <a href="index.html" class="waves-effect waves-grey active">
+                                    <a href="{{ url('/admin') }}" class="waves-effect waves-grey @if (Request::segment(2) == '') active @endif">
                                         <i class="material-icons">settings_input_svideo</i>Anasayfa
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="waves-effect waves-grey">
+                                    <a href="#" class="waves-effect waves-grey @if (Request::segment(2) === 'ayar' || Request::segment(2) === 'logo' || Request::segment(2) === 'hakkimizda') active @endif">
                                         <i class="material-icons">settings</i>Site Ayarları<i class="material-icons sub-arrow">keyboard_arrow_right</i>
                                     </a>
                                     <ul class="accordion-submenu list-unstyled">
-                                        <li><a href="#">Logo Değiştir</a></li>
-                                        <li><a href="#">Site Bilgilerini Değiştir</a></li>
-                                        <li><a href="#">Hakkımızda Sayfası Ayarları</a></li>
+                                        <li><a href="{{url('admin/logo')}}">Logo Değiştir</a></li>
+                                        <li><a href="{{url('admin/ayar')}}">Site Bilgilerini Değiştir</a></li>
+                                        <li><a href="{{url('admin/hakkimizda')}}">Hakkımızda Sayfası</a></li>
                                     </ul>
                                 </li>
                                 <li>

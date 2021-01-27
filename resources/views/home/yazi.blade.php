@@ -7,9 +7,6 @@
 @section('logo')
 {{ '../'.$ayar->logo }}
 @endsection
-@section('logo_dark')
-{{'../'.$ayar->logo_dark}}
-@endsection
 @section('siteadi')
 {{'../'.$ayar->site_adi}}
 @endsection

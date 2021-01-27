@@ -15,14 +15,12 @@
     <title>@yield('title', 'Ömer Can | Kişisel Blog Sitesi')</title>
   </head>
   <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <!-- Preloader-->
-
     <!-- Navigation-->
     <nav class="navbar navbar-unibody navbar-custom navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand page-scroll" href="#page-top">
-            <!-- Text or Image logo--><img class="logo" src="@yield('logo')" alt="Logo"><img class="logodark" src="@yield('logo_dark')" alt="Logo"></a>
+            <!-- Text or Image logo--><img class="logo" src="@yield('logo')" alt="Logo"><img class="logodark" src="@yield('logo')" alt="Logo"></a>
         </div>
         <div class="collapse navbar-collapse navbar-main-collapse">
           <ul class="nav navbar-nav navbar-left">

@@ -8,9 +8,6 @@
 @section('logo')
 {{ asset($ayar->logo) }}
 @endsection
-@section('logo_dark')
-{{ asset($ayar->logo_dark) }}
-@endsection
 @section('siteadi')
 {{$ayar->site_adi}}
 @endsection

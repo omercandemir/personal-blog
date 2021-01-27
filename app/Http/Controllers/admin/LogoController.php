@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ayar;
 
-class AyarController extends Controller
+class LogoController extends Controller
 {
 
     public function index()
     {
         $data['ayar']   = Ayar::where('id', 1)->first();
-        return view('panel.ayar', $data);
+        return view('panel.logo', $data);
     }
 
     public function create()
@@ -37,22 +37,19 @@ class AyarController extends Controller
 
     public function update(Request $request)
     {
+
         $request->validate([
-            'site_adi'          => 'required',
-            'site_aciklama'     => 'required',
-            'ozel_soz'          => 'required',
-            'mail'              => 'required|email'
+            'logo'      => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:3072'
         ]);
-        Ayar::where('id', 1)->update($request->except(['_method', '_token']));
-        return redirect('admin/')->withBasarili('Site bilgileri başarılı bir şekilde güncellendi!');
+
+        $logoName       = time().'.'.$request->logo->extension();
+        $request->logo->move(public_path().'/home/img', $logoName);
+        
+        Ayar::where('id', 1)->update(['logo' => 'home/img/'.$logoName]);
+        return back()->withBasarili('Beyaz Logo başarılı bir şekilde güncellendi!');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
