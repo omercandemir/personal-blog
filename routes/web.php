@@ -39,6 +39,6 @@ Route::resource('kategori', KategoriController::class)->only([
     'index', 'show'
 ]);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/panel', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('dashboard');
-})->name('panel');
+})->name('dashboard');
