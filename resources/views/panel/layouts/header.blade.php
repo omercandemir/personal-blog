@@ -25,6 +25,7 @@
         <!-- Theme Styles -->
         <link href="{{asset('panel/css/alpha.min.css')}}" rel="stylesheet">
         <link href="{{asset('panel/css/custom.css')}}" rel="stylesheet">
+        @yield('js')
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -89,43 +90,25 @@
                                     <ul class="accordion-submenu list-unstyled">
                                         <li><a href="{{url('admin/logo')}}">Logo Değiştir</a></li>
                                         <li><a href="{{url('admin/ayar')}}">Site Bilgilerini Değiştir</a></li>
-                                        <li><a href="{{url('admin/hakkimizda')}}">Hakkımızda Sayfası</a></li>
+                                        <li><a href="{{url('admin/hakkimizda')}}">Hakkımda Kısmı</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#" class="waves-effect waves-grey">
-                                        <i class="material-icons">desktop_windows</i>Layouts<i class="material-icons sub-arrow">keyboard_arrow_right</i>
+                                        <i class="material-icons">desktop_windows</i>Blog<i class="material-icons sub-arrow">keyboard_arrow_right</i>
                                     </a>
                                     <ul class="accordion-submenu list-unstyled">
-                                        <li><a href="layout-blank.html">Blank Page</a></li>
-                                        <li><a href="layout-boxed.html">Boxed Layout</a></li>
-                                        <li><a href="layout-hidden-sidebar.html">Hidden Sidebar</a></li>
+                                        <li><a href="{{url('admin/bloglar/create')}}">Yeni Yazı</a></li>
+                                        <li><a href="{{url('admin/bloglar')}}">Tüm Yazılar</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#" class="waves-effect waves-grey">
-                                        <i class="material-icons">code</i>Components<i class="material-icons sub-arrow">keyboard_arrow_right</i>
+                                        <i class="material-icons">code</i>Proje<i class="material-icons sub-arrow">keyboard_arrow_right</i>
                                     </a>
                                     <ul class="accordion-submenu list-unstyled">
-                                        <li><a href="ui-alerts.html">Alerts</a></li>
-                                        <li><a href="ui-accordion.html">Accordion</a></li>
-                                        <li><a href="ui-badges.html">Badges</a></li>
-                                        <li><a href="ui-breadcrumb.html">Breadcrumb</a></li>
-                                        <li><a href="ui-buttons.html">Buttons</a></li>
-                                        <li><a href="ui-button-group.html">Button Group</a></li>
-                                        <li><a href="ui-cards.html">Cards</a></li>
-                                        <li><a href="ui-code.html">Code</a></li>
-                                        <li><a href="ui-color.html">Color</a></li>
-                                        <li><a href="ui-dropdowns.html">Dropdowns</a></li>
-                                        <li><a href="ui-icons.html">Icons</a></li>
-                                        <li><a href="ui-list-group.html">List Group</a></li>
-                                        <li><a href="ui-modal.html">Modal</a></li>
-                                        <li><a href="ui-pagination.html">Pagination</a></li>
-                                        <li><a href="ui-popovers.html">Popovers</a></li>
-                                        <li><a href="ui-progress.html">Progress</a></li>
-                                        <li><a href="ui-spinners.html">Spinners</a></li>
-                                        <li><a href="ui-tooltips.html">Tooltips</a></li>
-                                        <li><a href="ui-typography.html">Typography</a></li>
+                                        <li><a href="ui-alerts.html">Yeni Proje</a></li>
+                                        <li><a href="ui-accordion.html">Tüm Projeler</a></li>
                                     </ul>
                                 </li>
                                 <li>
