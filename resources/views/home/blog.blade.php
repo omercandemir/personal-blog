@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+
 @section('logo')
 {{ asset($ayar->logo) }}
 @endsection
@@ -18,7 +19,7 @@
           <h3>Blog Yazıları</h3>
         </div>
         <div class="col-md-6 text-right">
-          <h6 class="breadcrumb"><a href="{{ url('/') }}">Anasayfa</a> / <a href="{{ url('/bloglar') }}">Blog</a>
+          <h6 class="breadcrumb"><a href="{{ url('/') }}">Anasayfa</a> / <a href="{{ url('/blog') }}">Blog</a>
           </h6>
         </div>
       </div>

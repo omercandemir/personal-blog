@@ -19,7 +19,7 @@ class BloglarController extends Controller
     public function index()
     {
         $data['ayar']   = Ayar::where('id', 1)->first();
-        $data['bloglar']   = Blog::paginate(8);
+        $data['bloglar']   = Blog::orderBy('id', 'desc')->paginate(8);
 
         return view('panel.bloglar', $data);
         
@@ -45,50 +45,70 @@ class BloglarController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new BloglarController;
-        $article->baslik    = $request->baslik;
-        $article->yazi      = $request->yazi;
-        $article->yazar     = $request->yazar;
-        $article->slug      = Str::slug($request->baslik);
+        $article = new Bloglar;
+        $article->baslik        = $request->baslik;
+        $article->yazi          = $request->yazi;
+        $article->yazar         = $request->yazar;
+        $article->slug          = Str::slug($request->baslik);
+        $article->kategori_id   = $request->kategori;
 
         if ($request->hasFile('resim')) {
             $imageName = Str::slug($request->baslik).'.'.$request->resim->extension();
-            $request->resim->move(public_path().'blog/', $imageName);
+            $request->resim->move(public_path().'/blogresim', $imageName);
+            $article->resim = 'blogresim/'.$imageName; // veritabanına kaydetmek için
         }
+        $article->save();
+        return redirect('admin/bloglar')->withBasarili('Yeni makale başarılı bir şekilde eklendi!');
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $data['ayar']           = Ayar::where('id', 1)->first();
+        $data['blog']           = Blog::where('id', $id)->first();
+        $data['kategoriler']    = Kategori::get();
+
+        return view('panel.blogduzenle', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $guncel = new Blog;
+        $guncel->baslik         = $request->yenibaslik;
+        $guncel->yazi           = $request->yazi;
+        $guncel->yazar          = $request->yazar;
+        $guncel->slug           = Str::slug($request->baslik);
+        $guncel->kategori_id    = $request->kategori;
+
+        if ($request->hasFile('resim')) {
+            $imageName = Str::slug($request->yenibaslik).'.'.$request->resim->extension();
+            $request->resim->move(public_path().'/blogresim', $imageName);
+            $guncel->resim = 'blogresim/'.$imageName; // veritabanına kaydetmek için
+            Blog::where('id', $id)->update([
+                'baslik'    => $guncel->baslik,
+                'yazi'      => $guncel->yazi,
+                'yazar'     => $guncel->yazar,
+                'resim'     => $imageName,
+                'slug'      => Str::slug($guncel->baslik),
+                'kategori_id' => $guncel->kategori_id
+            ]);
+            return redirect('admin/bloglar')->withBasarili('Makale başarılı bir şekilde güncellendi!');
+        }
+        else {
+            Blog::where('id', $id)->update([
+                'baslik'    => $guncel->baslik,
+                'yazi'      => $guncel->yazi,
+                'yazar'     => $guncel->yazar,
+                'slug'      => Str::slug($guncel->baslik),
+                'kategori_id' => $guncel->kategori_id
+            ]);
+            return redirect('admin/bloglar')->withBasarili('Makale başarılı bir şekilde güncellendi!');
+        }
     }
 
     /**
@@ -99,6 +119,8 @@ class BloglarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::find($id) ?? abort(404, 'Aranılan Quiz Bulunamadı!');
+        Blog::where('id', $id)->delete(); //
+        return redirect('admin/bloglar')->withBasarili('Yazı başarılı bir şekilde silindi!');
     }
 }

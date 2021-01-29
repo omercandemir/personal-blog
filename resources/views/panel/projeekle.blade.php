@@ -24,12 +24,12 @@
         @endif
         <div class="row">
             <div class="col-12">
-                <h2 class="page-title">Yeni Yazı Ekleme Sayfası</h2>
+                <h2 class="page-title">Yeni Proje Yayınlama Sayfası</h2>
             </div>
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        Yeni yazı eklemek için aşağıdaki tüm alanları doldurmalısınız!
+                        Yeni proje yayınlamak için aşağıdaki tüm alanları doldurmalısınız!
                     </div>
                 </div>
             </div>
@@ -38,13 +38,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Yeni Yazı</h5>
-                        <form action="{{ route('bloglar.store') }}" method="post" enctype="multipart/form-data">
+                        <h5 class="card-title">Yeni Proje</h5>
+                        <form action="{{ route('projeler.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="baslik">Yazı Başlığı</label>
+                                        <label for="baslik">Proje Başlığı</label>
                                         <input name="baslik" id="baslik" type="text" class="form-control">
                                     </div>
                                 </div>
@@ -54,31 +54,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="yazar">Makale Yazarı</label>
-                                        <input name="yazar" id="yazar" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <select name="kategori" class="form-control">
-                                            <option value="option_select" disabled selected>Makale Kategorisi</option>
-                                            @foreach ($kategoriler as $kategori)
-                                                <option value="{{$kategori->id}}">{{$kategori->adi}}</option>
-                                            @endforeach
-                                          </select>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <input id="acik" type="hidden" name="aciklama" value="" />
+                                <trix-editor input="acik"></trix-editor>
                             </div>
                             <hr>
-                            <h5 class="card-title text-center"><b>Yazı İçeriği</b></h5>
+                            <h5 class="card-title text-center"><b>Proje İçeriği</b></h5>
                             <div class="form-group">
                                 <input id="content" type="hidden" name="yazi" value="" />
                                 <trix-editor input="content"></trix-editor>
                             </div>
-                            <button type="submit" class="btn btn-primary">Yazıyı Paylaş</button>
+                            <button type="submit" class="btn btn-primary">Projeyi Paylaş</button>
                         </form>
                     </div>
                 </div>

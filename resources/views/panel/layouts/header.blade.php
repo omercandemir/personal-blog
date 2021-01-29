@@ -98,7 +98,7 @@
                                         <i class="material-icons">desktop_windows</i>Blog<i class="material-icons sub-arrow">keyboard_arrow_right</i>
                                     </a>
                                     <ul class="accordion-submenu list-unstyled">
-                                        <li><a href="{{url('admin/bloglar/create')}}">Yeni Yazı</a></li>
+                                        <li><a href="{{url('admin/bloglar/yeni')}}">Yeni Yazı</a></li>
                                         <li><a href="{{url('admin/bloglar')}}">Tüm Yazılar</a></li>
                                     </ul>
                                 </li>
@@ -107,41 +107,9 @@
                                         <i class="material-icons">code</i>Proje<i class="material-icons sub-arrow">keyboard_arrow_right</i>
                                     </a>
                                     <ul class="accordion-submenu list-unstyled">
-                                        <li><a href="ui-alerts.html">Yeni Proje</a></li>
-                                        <li><a href="ui-accordion.html">Tüm Projeler</a></li>
+                                        <li><a href="{{url('admin/projeler/yeni')}}">Yeni Proje</a></li>
+                                        <li><a href="{{url('admin/projeler')}}">Tüm Projeler</a></li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="waves-effect waves-grey">
-                                        <i class="material-icons">star_border</i>Plugins<i class="material-icons sub-arrow">keyboard_arrow_right</i>
-                                    </a>
-                                    <ul class="accordion-submenu list-unstyled">
-                                        <li><a href="plugins-code-editor.html">Code Editor</a></li>
-                                        <li><a href="plugins-nestable.html">Nestable List</a></li>
-                                        <li><a href="plugins-masonry.html">Masonry</a></li>
-                                        <li><a href="plugins-idle.html">Idle Timer</a></li>
-                                        <li><a href="plugins-image-crop.html">Image Crop</a></li>
-                                        <li><a href="plugins-image-zoom.html">Image Zoom</a></li>
-                                        <li><a href="plugins-select2.html">Select2</a></li>
-                                        <li><a href="plugins-plupload.html">Plupload</a></li>
-                                        <li><a href="plugins-toastr.html">Toastr</a></li>
-                                        <li><a href="plugins-range-sliders.html">Range Sliders</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="forms.html" class="waves-effect waves-grey">
-                                        <i class="material-icons">mode_edit</i>Forms
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tables.html" class="waves-effect waves-grey">
-                                        <i class="material-icons">grid_on</i>Tables
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="charts.html" class="waves-effect waves-grey">
-                                        <i class="material-icons">trending_up</i>Charts
-                                    </a>
                                 </li>
                                 <li>
                                     <form action="{{route('logout')}}" method="post">

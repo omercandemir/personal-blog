@@ -35,8 +35,8 @@
                                 <b>{{session('basarili')}}</b>
                             </div>
                         @endif
-                        <h5 class="card-title">Tüm Yazılar</h5>
-                        <div><a href="{{url('admin/bloglar/yeni')}}" class="btn btn-success waves-effect waves-light"><span class="material-icons">add</span> Yeni Yazı</a></div><br>
+                        <h5 class="card-title">Tüm Projeler</h5>
+                        <div><a href="{{url('admin/projeler/yeni')}}" class="btn btn-success waves-effect waves-light"><span class="material-icons">add</span> Yeni Proje</a></div><br>
                         <div class="table-container">
                             <div class="table-responsive">
                                 <table class="table">
@@ -44,21 +44,19 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Başlık</th>
-                                            <th scope="col">Yazar</th>
                                             <th scope="col">Tarih</th>
                                             <th scope="col">İşlem</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($bloglar as $blog)
+                                        @foreach ($projeler as $proje)
                                             <tr>
-                                                <th scope="row">{{$blog->id}}</th>
-                                                <td>{{$blog->baslik}}</td>
-                                                <td>{{$blog->yazar}}</td>
-                                                <td>{{$blog->created_at}}</td>
+                                                <th scope="row">{{$proje->id}}</th>
+                                                <td>{{$proje->proje_adi}}</td>
+                                                <td>{{$proje->created_at}}</td>
                                                 <td>
-                                                    <a href="{{ route('bloglar.edit', $blog->id) }}" class="btn btn-info waves-effect waves-light"><span class="material-icons">edit</span></a>
-                                                    <a href="{{route('bloglar.destroy', $blog->id)}}" class="btn btn-danger waves-effect waves-light"><span class="material-icons">delete</span></a>
+                                                    <a href="{{ route('projeler.edit', $proje->id) }}" class="btn btn-info waves-effect waves-light"><span class="material-icons">edit</span></a>
+                                                    <a href="{{ route('projeler.destroy', $proje->id) }}" class="btn btn-danger waves-effect waves-light"><span class="material-icons">delete</span></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -66,7 +64,7 @@
                                 </table>
                             </div>
                             <div class="text-center">
-                                {{$bloglar->links()}}
+                                {{$projeler->links()}}
                             </div>
                         </div>   
                     </div>

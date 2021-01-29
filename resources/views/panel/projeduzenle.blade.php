@@ -1,7 +1,7 @@
 @extends('panel.layouts.master')
 
 @section('title')
-    Site Ayarları | Yeni Yazı
+    Site Ayarları | Proje Güncelle
 @endsection
 
 @section('js')
@@ -13,7 +13,6 @@
 @endsection
 
 @section('content')
-    
 </div><!-- Left Sidebar -->
 <div class="page-content">
     <div class="container-fluid">
@@ -24,12 +23,12 @@
         @endif
         <div class="row">
             <div class="col-12">
-                <h2 class="page-title">Yeni Yazı Ekleme Sayfası</h2>
+                <h2 class="page-title">Proje Düzenleme Sayfası</h2>
             </div>
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        Yeni yazı eklemek için aşağıdaki tüm alanları doldurmalısınız!
+                        Projeyi güncellemek için için aşağıdaki tüm alanları doldurmalısınız!
                     </div>
                 </div>
             </div>
@@ -38,14 +37,15 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Yeni Yazı</h5>
-                        <form action="{{ route('bloglar.store') }}" method="post" enctype="multipart/form-data">
+                        <h5 class="card-title">Proje Düzenle</h5>
+                        <form action="{{ route('projeler.update', $proje->id) }}" method="post" enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="baslik">Yazı Başlığı</label>
-                                        <input name="baslik" id="baslik" type="text" class="form-control">
+                                        <label for="baslik">{{$proje->proje_adi}}</label>
+                                        <input name="yenibaslik" id="baslik" type="text" class="form-control" placeholder="{{$proje->proje_adi}}" required>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -57,28 +57,18 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="yazar">Makale Yazarı</label>
-                                        <input name="yazar" id="yazar" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <select name="kategori" class="form-control">
-                                            <option value="option_select" disabled selected>Makale Kategorisi</option>
-                                            @foreach ($kategoriler as $kategori)
-                                                <option value="{{$kategori->id}}">{{$kategori->adi}}</option>
-                                            @endforeach
-                                          </select>
+                                        <label for="yazar">{{$proje->proje_aciklama}}</label>
+                                        <input name="yazar" id="yazar" type="text" class="form-control" placeholder="{{$proje->proje_aciklama}}" required>
                                     </div>
                                 </div>
                             </div>
                             <hr>
                             <h5 class="card-title text-center"><b>Yazı İçeriği</b></h5>
                             <div class="form-group">
-                                <input id="content" type="hidden" name="yazi" value="" />
+                                <input id="content" type="hidden" name="yazi" value="{{$proje->proje_yazi}}" required/>
                                 <trix-editor input="content"></trix-editor>
                             </div>
-                            <button type="submit" class="btn btn-primary">Yazıyı Paylaş</button>
+                            <button type="submit" class="btn btn-primary">Projeyi Güncelle</button>
                         </form>
                     </div>
                 </div>

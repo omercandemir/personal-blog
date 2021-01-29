@@ -15,6 +15,8 @@ use App\Http\Controllers\admin\AyarController; // controller çağırma
 use App\Http\Controllers\admin\LogoController; // controller çağırma
 use App\Http\Controllers\admin\HakkimizdaController; // controller çağırma
 use App\Http\Controllers\admin\BloglarController; // controller çağırma
+use App\Http\Controllers\admin\ProjelerController; // controller çağırma
+
 
 Route::get('/', HomepageController::class)->name('anasayfa');
 Route::resource('blog', BlogController::class)->only([
@@ -51,6 +53,9 @@ Route::resource('admin/hakkimizda', HakkimizdaController::class)->middleware('au
     'index', 'update'
 ]);
 
-Route::resource('admin/bloglar', BloglarController::class)->middleware('auth:sanctum', 'verified')->only([
-    'index', 'create', 'store'
-]);
+Route::get('admin/bloglar/{id}', [BloglarController::class,'destroy'])->whereNumber('id')->name('bloglar.destroy');
+Route::resource('admin/bloglar', BloglarController::class)->middleware('auth:sanctum', 'verified');
+
+Route::get('admin/projeler/{id}', [ProjelerController::class,'destroy'])->whereNumber('id')->name('projeler.destroy');
+Route::resource('admin/projeler', ProjelerController::class)->middleware('auth:sanctum', 'verified');
+
