@@ -29,15 +29,6 @@
             <li><a href="{{ url('/blog') }}">Blog <span class="caret"></span></a></li>
             <li><a href="{{ url('projeler') }}">Projeler <span class="caret"></span></a></li>
             <li class="menu-divider visible-lg">&nbsp;</li>
-            <li><a href="#">Shop <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="shop2.html">Shop sidebar</a></li>
-                <li><a href="shop3.html">Shop  sidebar  wide</a></li>
-                <li><a href="shop-single.html">Single product</a></li>
-                <li><a href="shop-cart.html">Shopping cart</a></li>
-              </ul>
-            </li>
             <li class="visible-lg">&nbsp;</li>
             <li class="dropdown"><a class="dropdown-toggle" href="#"><span class="lang">TR</span><span class="caret"></span></a>
               <ul class="dropdown-menu">

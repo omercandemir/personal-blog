@@ -54,6 +54,10 @@ class BlogController extends Controller
      */
     public function show($slug)
     {
+        $kontrol = Blog::where('slug', $slug)->first();
+        if (!$kontrol) {
+            abort(404, 'İlan bulunamadı!');
+        }
         $data['ayar']       = Ayar::where('id', 1)->first();
         $data['yazi']       = Blog::where('slug', $slug)->first();
         return view('home.yazi', $data);

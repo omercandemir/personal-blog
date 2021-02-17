@@ -167,13 +167,13 @@
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label">İsminiz</label>
-                          <input name="isim" class="form-control input-lg" type="text" placeholder="İsminiz">
+                          <input name="isim" class="form-control input-lg" type="text" placeholder="İsminiz" required>
                        </div>
                     </div>
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label">E-Posta Adresiniz</label>
-                          <input name="email" class="form-control input-lg" type="email" placeholder="E-posta Adresiniz">
+                          <input name="email" class="form-control input-lg" type="email" placeholder="E-posta Adresiniz" required>
                        </div>
                     </div>
                     <div class="control-group">
@@ -185,7 +185,7 @@
                     <div class="control-group">
                        <div class="form-group floating-label-form-group controls">
                           <label class="sr-only control-label">Mesajınız</label>
-                          <textarea name="mesaj" class="form-control input-lg" rows="2" placeholder="Mesajınız"></textarea>
+                          <textarea name="mesaj" class="form-control input-lg" rows="2" placeholder="Mesajınız" required></textarea>
                        </div>
                     </div>
                     <button class="btn btn-dark" type="submit">Gönder</button>

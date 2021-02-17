@@ -51,6 +51,10 @@ class ProjeController extends Controller
      */
     public function show($slug)
     {
+        $kontrol = Proje::where('slug', $slug)->first();
+        if (!$kontrol) {
+            abort(404, 'İlan bulunamadı!');
+        }
         $data['ayar']       = Ayar::where('id', 1)->first();
         $data['proje']      = Proje::where('slug', $slug)->first();
         $data['projeler']   = Proje::inRandomOrder()->limit(4)->get();
