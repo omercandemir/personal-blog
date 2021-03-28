@@ -8,7 +8,7 @@ Bu proje ile birlikte laravel öğrenmeye başladım. Belirli şeyleri bu proje 
 
 ## Proje Eksikleri
 <b>--- Anasayfa --- </b><br>
--> Jr. Web Developer yazısı için veritabanının ayarlar tablosunda bir field oluşturulması gerek. (birsonraki güncellemede getireceğim)<br>
+-> Jr. Web Developer yazısı için veritabanının ayarlar tablosunda bir field oluşturulması gerek. (bir sonraki güncellemede getireceğim)<br>
 -> Özel söz kısmı için özel söz sahibi kısmı veritabanında mevcut değil. <br>
 -> Arkaplan resimleri için veritabanının ayarlar tablosunda background image field'i bulunmamakta. <br>
 
